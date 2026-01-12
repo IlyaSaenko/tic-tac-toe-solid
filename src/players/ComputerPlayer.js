@@ -3,7 +3,7 @@ import AbstractPlayer from "./AbstractPlayer.js";
 export default class ComputerPlayer extends AbstractPlayer {
   async getMove(board) {
     await new Promise(resolve => {
-      setTimeout(resolve, 2000)
+      setTimeout(resolve, 1000)
     });
     const emptyIndices = board.getEmptyIndices();
     
