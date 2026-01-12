@@ -32,10 +32,7 @@ export default class Game {
 
       const winCombo = this.board.checkWin(this.currentPlayer.marker);
       if (winCombo) return this.endGame(this.currentPlayer);
-      if (this.board.isFull()) {
-        console.log('НИЧЬЯ обнаружена'); // должен появиться
-        return this.endGame(null);
-      }
+      if (this.board.isFull()) return this.endGame(null);
 
       this.currentPlayer = this.currentPlayer === this.player ? this.computer : this.player;
     }
@@ -50,8 +47,7 @@ export default class Game {
       this.board.highlightWinningCells(this.board.checkWin(winner.marker));
       this.currentTurnElement.textContent = `${winner.name} победил! 🎉`;
     } else {
-        console.log('ENDGAME: ничья'); // должен появиться
-        this.currentTurnElement.textContent = 'Ничья 🤝';
+      this.currentTurnElement.textContent = 'Ничья 🤝';
     }
     
     this.board.disable();
